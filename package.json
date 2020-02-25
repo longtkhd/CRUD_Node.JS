@@ -1,0 +1,25 @@
+{
+  "name": "crud",
+  "version": "1.0.0",
+  "description": "crud api",
+  "main": "app",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longtkhd/CRUD.git"
+  },
+  "author": "longtkhd",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/longtkhd/CRUD/issues"
+  },
+  "homepage": "https://github.com/longtkhd/CRUD#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.2",
+    "nodemon": "^2.0.2"
+  }
+}
