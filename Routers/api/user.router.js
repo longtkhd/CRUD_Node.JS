@@ -1,6 +1,7 @@
 const express = require('express');
-const User = require('../../models/user.model');
 const router = express.Router();
+const User = require('../../models/user.model');
+
 
 router.post('/user', async (req, res) => {
   const user = new User(req.body);
@@ -74,8 +75,5 @@ router.post('/user/:id', async (req, res) => {
     res.status(500).send(e);
   }
 })
-
-
-
 
 module.exports = router;
