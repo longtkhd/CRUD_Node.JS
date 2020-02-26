@@ -10,10 +10,10 @@ const User = new Schema({
     type : String,
    
   },
-  // phone : {
-  //   type : Number,
+  phone : {
+    type : Number,
     
-  // },
+  },
   password: {
     type: String,
     

@@ -51,6 +51,16 @@ app.post('/user', async (req,res)  => {
   }
 })
 
+app.get('/user', async (req,res) => {
+  try{
+    const users = await User.find({});
+    res.status(201).send(users);
+  }catch(e){
+    res.status(500).send(e);
+
+  }
+})
+
 
 
 app.listen(port,() => {
