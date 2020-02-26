@@ -86,6 +86,30 @@ app.get('/user/:id', async (req,res) => {
 
 
 })
+//update
+app.patch('/user/:id', async (req,res) => {
+  const updates = Object.keys(req.body);
+  const allowUpdate = ['fullName','email','phone','password'];
+  const isUpdate = updates.every((update) => allowUpdate.includes(update));
+
+  if(!isUpdate){
+    return res.status(400).send({error : "invalid Update"});
+  }
+  const id = req.params.id;
+  try{
+    const user = await User.findByIdAndUpdate(id,req.body,{new:true,runValidators:true});
+    if(!user)
+    {
+      return res.status(404).send();
+    }
+    res.send(user);
+    
+
+  }catch(e){
+    res.send(e);
+
+  }
+})
 
 
 
