@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const Task = new Schema({
   description: {
     type: String,
-    trim :true
+    trim:true
   },
   completed: {
     type: Boolean,
@@ -17,6 +17,7 @@ module.exports = mongoose.model('Task', Task);
 // const Task = mongoose.model('Task',{
 //   description: {
 //     type: String,
+   
 //   },
 //   completed: {
 //     type: Boolean,
