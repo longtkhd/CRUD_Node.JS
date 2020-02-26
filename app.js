@@ -28,7 +28,7 @@ app.get('/',(req,res) => {
 
 app.post('/task', async (req,res) => {
   const task = new Task(req.body);
-  console.log(req.body);
+  // console.log(req.body);
   try{
     await task.save();
     res.status(201).send(task); 
@@ -36,6 +36,15 @@ app.post('/task', async (req,res) => {
     res.status(400).send(e);
 
   }
+})
+app.get('/task', async (req,res) => {
+    try{
+      const tasks = await Task.find({});
+      res.status(200).send(tasks);
+
+    }catch(e){
+      res.status(500).send(e);
+    }
 })
 
 app.post('/user', async (req,res)  => {
