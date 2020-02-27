@@ -6,26 +6,9 @@ require ('./config/database');
 const bodyParser = require('body-parser')
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-// const Task = require('./models/task.model.js');
-// const User = require('./models/user.model');
-// const router = require('./Routers/api/user.router')
-// const taskrouter = require('./Routers/api/task.router')
-// app.use(router)
-// app.use(taskrouter)
+//router
 const router = require('./Routers/api.router');
 app.use(router);
-
-
-
-
-
-
-
-
-
-
-
-
 
 app.listen(port,() => {
   console.log('sever is running on port ' + port);

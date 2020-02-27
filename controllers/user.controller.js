@@ -77,3 +77,15 @@ exports.DeleteUser =  async (req, res) => {
     res.status(500).send(e);
   }
 }
+
+exports.Login = async (req, res) => {
+  try {
+    const { email, password } = req.body
+    const user = await User.login(email, password)
+
+    const token = await user.generateToken()
+    return res.status(200).json({ token, user })
+  } catch (e) {
+    res.status(400).send()
+  }
+}
