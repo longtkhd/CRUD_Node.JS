@@ -9,7 +9,8 @@ exports.AddUser = async (req, res) => {
 
   try {
     await user.save();
-    res.status(201).send(user);
+    const token = await user.generateToken()
+    res.status(201).send({user,token});
 
   } catch (e) {
     res.status(400).send(e);

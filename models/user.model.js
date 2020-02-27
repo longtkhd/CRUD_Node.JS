@@ -22,8 +22,9 @@ const UserSchema = new Schema({
   },
   password: {
     type: String,
-    
-    
+  },
+  token: {
+    type: String
   }
 })
 
@@ -43,14 +44,15 @@ UserSchema.methods.generateToken = async function () {
   await user.save()
   return token
 }
+//define login before user login
 UserSchema.statics.login = async (email, password) => {
   const user = await User.findOne({ email })
   if (!user) {
-    throw new Error()
+    throw new Error('Unable to login')
   }
   const validPassword = await bcrypt.compare(password, user.password)
   if (!validPassword) {
-    throw new Error()
+    throw new Error("Unable to login")
   }
   return user
 }
