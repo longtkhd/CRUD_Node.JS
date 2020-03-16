@@ -2,8 +2,8 @@ const express = require('express');
 const router = express.Router();
 const User = require('../../models/user.model');
 const UserController = require('../../controllers/user.controller')
-const admauth = require('../../common/auth');
-const auth = admauth.auth;
+const adminauth = require('../../common/auth');
+const auth = adminauth.auth;
 
 router.post('/add',auth, UserController.AddUser);
 router.get('/get', UserController.GetUser);
